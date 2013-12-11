@@ -1,20 +1,13 @@
 package JStage.JStage;
 
-
 public abstract class Actor {
+
+	public abstract int getID();
 	
-	private final int ID = 0; //TODO implement unique ID
-
-	public final void act(Action action){
-		action.accept(this);
+	public void add(Action action){
+		System.out.println("Action undefined!");
 	}
-
-	public final void visit(Action action) {
-		throw new RuntimeException("Action not found: "+action.getName());		
-	}
-
-	public int getID() {
-		return ID;
-	}
+	
+	public abstract void perform();
 
 }

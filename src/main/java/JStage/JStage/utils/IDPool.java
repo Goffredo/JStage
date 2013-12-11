@@ -1,4 +1,4 @@
-package JStage.JStage;
+package JStage.JStage.utils;
 
 import java.util.Iterator;
 import java.util.Set;

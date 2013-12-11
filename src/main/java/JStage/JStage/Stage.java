@@ -1,34 +1,24 @@
 package JStage.JStage;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedList;
+import java.util.List;
 
-public final class Stage {
+public class Stage {
 	
-	private final Map<Integer, Actor> actors = new HashMap<Integer, Actor>();
-	private final ActionManager actionManager;
+	private List<Actor> actors = new LinkedList<>();
 
-	public Stage(ActionManager actionManager){
-		this.actionManager = actionManager;
-	}	
-	
-	public void perform(){
-		actionManager.step();
-		for(Actor actor : actors.values()){
-			for(Action action : actionManager.getActions(actor)){
-				actor.act(action);
-			}
+	public void act(){
+		for(Actor p: actors){
+			p.perform();
 		}
 	}
-
+	
 	public void addActor(Actor actor){
-		actors.put(actor.getID(), actor);
+		actors.add(actor);
 	}
 	
-	public void removeActor(int actorID){
+	public void addPerformance(Performance p){
+		p.execute();
 	}
 
-	public void addAction(Action newAction){
-		actionManager.addAction(newAction);
-	}
 }
